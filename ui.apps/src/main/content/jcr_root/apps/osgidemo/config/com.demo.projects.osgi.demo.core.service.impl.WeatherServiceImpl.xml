@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0" jcr:primaryType="sling:OsgiConfig"
+    getCityLatLongMapping="[bangalore|12.98|77.60,london|51.50|0.12,newyork|40.71|74]"
+	getOpenAPIAppId="c1deb366979b0e5f11f7b5bbc13a7516"	/>
