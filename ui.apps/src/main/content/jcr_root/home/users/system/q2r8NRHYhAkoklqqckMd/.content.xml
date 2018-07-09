@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
+    jcr:primaryType="rep:SystemUser"
+    jcr:uuid="9a555c35-1415-3669-a7d3-6d1da490d407"
+    rep:authorizableId="osgidemo-system-user"
+    rep:principalName="osgidemo-system-user"/>
