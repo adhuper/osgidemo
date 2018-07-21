@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/default"
+        cq:lastModified="{Date}2018-07-21T20:56:50.159+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/libs/cq/workflow/templates/model"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="AEM Training - Approve Publish Workflow"
+        sling:resourceType="cq/workflow/components/pages/model">
+        <flow
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="foundation/components/parsys">
+            <dynamic_participant
+                jcr:created="{Date}2018-07-21T20:49:30.172+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2018-07-21T20:56:50.116+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Page Approval request"
+                sling:resourceType="cq/workflow/components/model/dynamic_participant">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    DO_NOTIFY="true"
+                    DYNAMIC_PARTICIPANT="com.demo.projects.osgi.demo.core.workflow.DynamicApproverSelection"/>
+            </dynamic_participant>
+            <or
+                jcr:created="{Date}2018-07-21T20:09:39.698+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2018-07-21T20:09:39.698+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/workflow/components/model/or"
+                branches="2"
+                orSplit="true">
+                <_x0031_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <noopprocess
+                        jcr:created="{Date}2018-07-21T20:10:44.481+05:30"
+                        jcr:createdBy="admin"
+                        jcr:description="Approve the page for activation"
+                        jcr:lastModified="{Date}2018-07-21T20:11:00.356+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Approve"
+                        sling:resourceType="cq/workflow/components/workflow/noopprocess"
+                        PROCESS="/etc/workflow/scripts/noop.ecma"
+                        PROCESS_AUTO_ADVANCE="true">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="/etc/workflow/scripts/noop.ecma"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </noopprocess>
+                    <activateresourceproc
+                        jcr:created="{Date}2018-07-21T20:12:18.149+05:30"
+                        jcr:createdBy="admin"
+                        jcr:description="A process to activate a page or asset"
+                        jcr:lastModified="{Date}2018-07-21T20:12:18.149+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Activate Page/Asset"
+                        sling:resourceType="wcm/workflow/components/workflow/activateresourceprocess">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.day.cq.wcm.workflow.process.ActivatePageProcess"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </activateresourceproc>
+                </_x0031_>
+                <_x0032_
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="cq/flow/components/parsys">
+                    <noopprocess
+                        jcr:created="{Date}2018-07-21T20:11:11.475+05:30"
+                        jcr:createdBy="admin"
+                        jcr:description="Reject the page"
+                        jcr:lastModified="{Date}2018-07-21T20:11:25.397+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Reject"
+                        sling:resourceType="cq/workflow/components/workflow/noopprocess"
+                        PROCESS="/etc/workflow/scripts/noop.ecma"
+                        PROCESS_AUTO_ADVANCE="true">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="/etc/workflow/scripts/noop.ecma"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </noopprocess>
+                    <process
+                        jcr:created="{Date}2018-07-21T20:44:40.217+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2018-07-21T20:45:34.067+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Delete Page"
+                        sling:resourceType="cq/workflow/components/model/process">
+                        <metaData
+                            jcr:primaryType="nt:unstructured"
+                            PROCESS="com.demo.projects.osgi.demo.core.workflow.DeletePageProcessStep"
+                            PROCESS_AUTO_ADVANCE="true"/>
+                    </process>
+                </_x0032_>
+            </or>
+        </flow>
+        <model/>
+    </jcr:content>
+</jcr:root>
