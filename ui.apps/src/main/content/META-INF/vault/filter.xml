@@ -2,6 +2,7 @@
 <workspaceFilter version="1.0">
     <filter root="/apps/osgidemo"/>
     <filter root="/apps/sling" />
+	<filter root="/apps/wcm" />
 	<filter root="/etc/osgidemo" />
 	<filter root="/home/users/system/q2r8NRHYhAkoklqqckMd" />
 	<filter root="/etc/workflow/models"/>
